@@ -7,6 +7,7 @@ import Signin from './Pages/Signin/Signin';
 import AuthProvider from './context/AuthProvider';
 import Header from './Pages/Shared/Header/Header';
 import AllProducts from './Pages/AllProducts/AllProducts';
+import BuyPage from './Pages/Private/BuyPage/BuyPage';
 
 function App() {
   return (
@@ -14,13 +15,14 @@ function App() {
       <AuthProvider>
 
         <BrowserRouter>
-          <Header></Header>
+          <Header/>
         <Routes>
               <Route path="/" element={<Home />} />
               <Route path="home" element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="signin" element={<Signin />} />
               <Route path="products" element={<AllProducts/>} />
+            <Route path="products/:id" element={<BuyPage/>} />
         </Routes>
       </BrowserRouter>
       </AuthProvider>

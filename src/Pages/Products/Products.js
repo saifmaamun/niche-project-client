@@ -13,7 +13,7 @@ const Products = () => {
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
-            .then(data => setProducts(data.slice(0,2)))
+            .then(data => setProducts(data.slice(0, 6)))
     }, [])
 
 
@@ -22,16 +22,17 @@ const Products = () => {
             <h1>Products</h1>
             <Container>
                 <Grid container spacing={2}>
-                        {
-                            products.map(product =>
-                    <Grid item xs={12} sm={6} md={4}>
+                    {
+                        products.map(product =>
+                            <Grid item xs={12} sm={6} md={4}>
                                 <Product
-                                key={product._id}
+                                    key={product._id}
+                                    
                                     product={product}
                                 ></Product>
-                    </Grid>
-                                )
-                        }
+                            </Grid>
+                        )
+                    }
                 </Grid>
 
 
