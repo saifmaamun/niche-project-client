@@ -11,8 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { NavLink } from 'react-router-dom';
 
-const pages = ['Home', 'Login', 'Signin'];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -75,12 +76,21 @@ const Header = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem  onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center"><NavLink to="/home">Home</NavLink></Typography>
                                 </MenuItem>
-                            ))}
+                                <MenuItem  onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center"><NavLink to="/login">Login</NavLink></Typography>
+                                </MenuItem>
+                                <MenuItem  onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center"><NavLink to="/signin">Signin</NavLink></Typography>
+                                </MenuItem>
+                                <MenuItem  onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center"><NavLink to="/products">Products</NavLink></Typography>
+                                </MenuItem>
+                            {/* ))} */}
                         </Menu>
+
                     </Box>
                     <Typography
                         variant="h6"
@@ -91,16 +101,41 @@ const Header = () => {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                variant="h2"
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color:'black', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
+                       
+                        <Button
+                            variant="h2"
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'black', display: 'block' }}
+                        >
+                        <NavLink to="/home">Home</NavLink>
+
+                        </Button>
+                        <Button
+                            variant="h2"
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'black', display: 'block' }}
+                        >
+                            <NavLink to="/login">Login</NavLink>
+
+                        </Button>
+                        <Button
+                            variant="h2"
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'black', display: 'block' }}
+                        >
+                            <NavLink to="/signin">Signin</NavLink>
+
+                        </Button>
+                        <Button
+                            variant="h2"
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'black', display: 'block' }}
+                        >
+                            <NavLink to="/products">Products</NavLink>
+
+                        </Button>
+                        
+                       
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

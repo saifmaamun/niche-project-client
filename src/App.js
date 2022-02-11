@@ -5,18 +5,22 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import Signin from './Pages/Signin/Signin';
 import AuthProvider from './context/AuthProvider';
+import Header from './Pages/Shared/Header/Header';
+import AllProducts from './Pages/AllProducts/AllProducts';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
 
-      <BrowserRouter>
+        <BrowserRouter>
+          <Header></Header>
         <Routes>
               <Route path="/" element={<Home />} />
               <Route path="home" element={<Home />} />
               <Route path="login" element={<Login />} />
               <Route path="signin" element={<Signin />} />
+              <Route path="products" element={<AllProducts/>} />
         </Routes>
       </BrowserRouter>
       </AuthProvider>
