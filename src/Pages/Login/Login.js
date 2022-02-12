@@ -1,32 +1,35 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button'
 import { Container, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Shared/Header/Header';
 
 const Login = () => {
-    const { auth, googleLogin, user, userLogin,error } = useAuth();
+    const { auth, googleLogin, user, userLogin, error } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
 
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const hanldeEmail = (e) => {
+    const handleEmail = (e) => {
         setEmail(e.target.value);
     };
-    const hanldePassword = (e) => {
+    const handlePassword = (e) => {
         setPassword(e.target.value);
     };
 
     const handleLogin = () => {
         userLogin(email, password);
-        // console.log(url)
-        // history.push(url)
-
-
-    };
+        console.log(from);
+        navigate(from, {replace: true});
+        
+    }
+    
 
     
 
@@ -42,10 +45,10 @@ const Login = () => {
             </Button>
             <Container>
                         <div className="mt-5 pt-5">
-                            <input onBlur={hanldeEmail} className="w-100 py-3 rounded border-info" type="email" name="" placeholder="Email" />
+                            <input onBlur={handleEmail} className="w-100 py-3 rounded border-info" type="email" name="" placeholder="Email" />
                             <br />
                             <br />
-                            <input onBlur={hanldePassword} className="w-100 py-3 rounded border-info" type="password" name="" placeholder="Password" />
+                            <input onBlur={handlePassword} className="w-100 py-3 rounded border-info" type="password" name="" placeholder="Password" />
                             <br />
                             <div className="row mb-3 text-danger">{error}</div>
                             <br />

@@ -18,11 +18,13 @@ import Typography from '@mui/material/Typography';
 import { MenuItem } from '@mui/material';
 import { NavLink, Outlet } from 'react-router-dom';
 import Header from '../../../Shared/Header/Header';
+import useAuth from '../../../../hooks/useAuth';
 
 const drawerWidth = 240;
 const DashBorad = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { admin } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -64,6 +66,8 @@ const DashBorad = (props) => {
     </NavLink >
             <Divider />
             <div>
+                {admin && <Box>
+                    
                 <NavLink to="/dashboard/addproducts">
                 <MenuItem >
                     <Typography textAlign="center">Add Product</Typography>
@@ -88,18 +92,21 @@ const DashBorad = (props) => {
                     <Typography textAlign="center">Manage Products</Typography>
                     </MenuItem>
                 </NavLink>
+                </Box>}
 
-                <NavLink to="/dashboard/myorders">
-                <MenuItem >
-                    <Typography textAlign="center">My Orders</Typography>
-                </MenuItem>
-            </NavLink>
-                
-                <NavLink to="/dashboard/review">
-                <MenuItem >
-                    <Typography textAlign="center">Review</Typography>
-                </MenuItem>
-                </NavLink>
+                {!admin &&<Box>
+                    <NavLink to="/dashboard/myorders">
+                        <MenuItem >
+                            <Typography textAlign="center">My Orders</Typography>
+                        </MenuItem>
+                    </NavLink>
+
+                    <NavLink to="/dashboard/review">
+                        <MenuItem >
+                            <Typography textAlign="center">Review</Typography>
+                        </MenuItem>
+                    </NavLink>
+                </Box>}
 
             </div>
             
