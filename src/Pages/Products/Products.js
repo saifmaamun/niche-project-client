@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, Container, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import Product from '../Product/Product';
 
@@ -13,9 +9,10 @@ const Products = () => {
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
+        // .then(data=>console.log(data))
             .then(data => setProducts(data.slice(0, 6)))
     }, [])
-
+console.log('products')
 
     return (
         <Box sx={{ m: 8 }}>

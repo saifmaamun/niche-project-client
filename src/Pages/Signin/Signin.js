@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button'
 import { Typography } from '@mui/material';
-import useAuth from '../../hooks/useAuth';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import useAuth from '../../hooks/useAuth';
+import Header from '../Shared/Header/Header';
 
 const Signin = () => {
-    const { auth} = useAuth();
+    const { auth,user, registerUser } = useAuth();
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [user, setUser] = useState({});
     // console.log(user, name);
 
     const handleNameChange = e => {
@@ -27,39 +28,24 @@ const Signin = () => {
 
     const handleRegistration = e => {
         e.preventDefault();
-        console.log(email, password);
+        console.log(email, password, name);
         if (password.length < 6) {
             setError('Password Must be at least 6 characters long.')
             return;
         }
         else {
-            registerNewUser(email, password);
+            registerUser(email, password, name);
         }
+        console.log(email, password, name,user);
+        navigate('/')
     }
 
-    const registerNewUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                const user = result.user;
-                console.log(user);
-                setError('');
-                setUserName();
-                console.log(name)
-            })
-            .catch((error) => {
-                setError(error.message)
-            });
-    }
-
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => { })
-    }
 
 
 
     return (
         <div>
+            <Header/>
             <h1>login using google</h1>
             <p>user is { user.name}</p>
             <div>

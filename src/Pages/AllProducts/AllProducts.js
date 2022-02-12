@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, Container, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import Product from '../Product/Product';
+import Header from '../Shared/Header/Header';
 
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -17,6 +18,9 @@ const AllProducts = () => {
 
 
     return (
+        <div>
+
+            <Header/>
         <Box sx={{ m: 8 }}>
             <h1>Products</h1>
             <Container>
@@ -27,7 +31,7 @@ const AllProducts = () => {
                                 <Product
                                     key={product._id}
                                     product={product}
-                                ></Product>
+                                    ></Product>
                             </Grid>
                         )
                     }
@@ -36,6 +40,7 @@ const AllProducts = () => {
 
             </Container>
         </Box>
+                    </div>
     );
 };
 

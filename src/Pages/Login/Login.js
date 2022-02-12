@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import useFirebase from '../../hooks/useFirebase';
 import Button from '@mui/material/Button'
 import { Container, Typography } from '@mui/material';
-import useAuth from '../../hooks/useAuth';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import Header from '../Shared/Header/Header';
 
 const Login = () => {
-    const { auth, googleLogin, user, userLogin,error } = useFirebase();
+    const { auth, googleLogin, user, userLogin,error } = useAuth();
 
 
 
@@ -33,6 +33,7 @@ const Login = () => {
     
     return (
         <div>
+            <Header/>
             <Typography>
                 new here?
             </Typography>
