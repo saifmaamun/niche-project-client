@@ -30,7 +30,7 @@ const BuyPage = () => {
 
 
     useEffect(() => {
-        fetch(`https://frozen-meadow-47661.herokuapp.com//${id}`)
+        fetch(`https://frozen-meadow-47661.herokuapp.com/${id}`)
             .then(res => res.json())
             .then(data => setPurchase(data))
     }, [])
@@ -42,7 +42,7 @@ const BuyPage = () => {
                 <Box sx={{ flexGrow: 1, py: 3 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={6} md={8}>
-                            <img style={{ width: '100%', borderRadius: 10 }} src={img}></img>
+                            <img style={{ width: '100%', borderRadius: 10 }} src={img} alt='car'></img>
                             <Card >
                                 <CardActionArea>
                                     <CardContent>
