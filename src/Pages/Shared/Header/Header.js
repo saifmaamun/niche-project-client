@@ -38,8 +38,8 @@ const Header = () => {
         setAnchorElUser(null);
     };
     return (
-        <AppBar position="static" sx={{ bgcolor: 'error.main', color: 'black' }}>
-            <Container maxWidth="xl">
+        <AppBar style={{ backgroundColor:'#002426'}} position="static" sx={{  color: 'white'}}>
+            <Container maxWidth="xl" sx={{ my: 2, flexDirection: 'row', alignItems: 'center' }}>
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"
@@ -111,7 +111,7 @@ const Header = () => {
                             <Button
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'black', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
                             >Home
                             </Button>
                         </NavLink>
@@ -120,7 +120,7 @@ const Header = () => {
                             <Button
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'black', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
                             >Login</Button>
                         </NavLink>
 
@@ -128,7 +128,7 @@ const Header = () => {
                             <Button
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'black', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
                             >Signin</Button>
                         </NavLink>
 
@@ -136,7 +136,7 @@ const Header = () => {
                             <Button
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'black', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
                             > Products </Button>
                         </NavLink>
 
@@ -144,7 +144,7 @@ const Header = () => {
                             <Button
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'black', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
                             >Dashboard</Button>
                         </NavLink>
 
@@ -180,7 +180,7 @@ const Header = () => {
                         </Menu>
                     </Box>
                     {user?.email && <Button onClick={logOut} style={{ color: "white" }}>Logout</Button>}
-                    {user?.email && <Typography sx={{ color: 'text.warning', bgcolor: 'white', px: 3, py: 1, borderRadius: 16 }} variant="subtitle2" component="div">
+                    {user?.email && <Typography sx={{ color: 'black', bgcolor: 'white', px: 3, py: 1, borderRadius: 16 }} variant="subtitle2" component="div">
                         {user.displayName}
                     </Typography>}
                 </Toolbar>

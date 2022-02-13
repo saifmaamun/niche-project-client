@@ -1,9 +1,11 @@
-import { TableCell, TableRow } from '@mui/material';
+import { Card, CardContent, Container, Grid, TableCell, TableRow, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
+import './Reviews.css';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
+    console.log(reviews)
 
     useEffect(() => {
         fetch('https://frozen-meadow-47661.herokuapp.com/reviews')
@@ -13,14 +15,34 @@ const Reviews = () => {
 
     return (
         <Box>
+            <Container>
+                <Typography variant="h3" sx={{ textAlign: 'left', py: 5, ml: -4, textTransform: 'capitalize', fontWeight: "bold"}}> <u>Customer Reviews</u> </Typography>
+
+            <Grid container spacing={2}>
+                    
             {reviews.map((review) => (
+                <Grid item xs={4}>
                 <div
-                    key={review._id}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                key={review._id}
                 >
-                    <h1>{review.name }</h1>
+                        <Card className="review" >
+                        <CardContent  sx={{textAlign: 'left'}}>
+                                <Typography variant="h3"  gutterBottom>
+                                {review.name}
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                {review.description}
+                            </Typography>
+                            <Typography sx={{ mb: 1.5 }}>
+                                {review.email}
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 </div>
+            </Grid>
             ))}
+            </Grid>
+            </Container>
         </Box>
     );
 };

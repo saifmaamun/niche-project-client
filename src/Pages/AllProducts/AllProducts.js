@@ -20,9 +20,11 @@ const AllProducts = () => {
     return (
         <div>
 
-            <Header/>
+            <Header />
+            <Container>
+
         <Box sx={{ m: 8 }}>
-            <h1>Products</h1>
+                <Typography variant="h3" sx={{ textAlign: 'left', py: 5, ml: -4, textTransform: 'capitalize', fontWeight: "bold", color: 'black' }}> <u>Our Collections</u> </Typography>
             <Container>
                 <Grid container spacing={2}>
                     {
@@ -40,6 +42,7 @@ const AllProducts = () => {
 
             </Container>
         </Box>
+                                    </Container>
                     </div>
     );
 };

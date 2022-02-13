@@ -1,0 +1,13 @@
+.card-style{
+    background:#002426e7;
+    /* background-image: linear-gradient(#002426, #22313280, #888d8d77); */
+    color:#ffffff;
+    text-align:left;
+}
+
+.card-hover{
+    box-shadow: 15px 15px 15px 0 #002426;
+}
+.card-hover:hover{
+    box-shadow: 15px 15px 15px 0 #002426;
+}

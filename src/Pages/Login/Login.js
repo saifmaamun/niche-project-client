@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button'
-import { Container, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Shared/Header/Header';
+import { Box } from '@mui/system';
+import './Login.css'
 
 const Login = () => {
     const { auth, googleLogin, user, userLogin, error } = useAuth();
@@ -35,35 +37,51 @@ const Login = () => {
 
     
     return (
-        <div>
-            <Header/>
-            <Typography>
-                new here?
-            </Typography>
-            <Button>
-                <NavLink to="/signin" className="style px-1 text-light fw-bold">Create an Account</NavLink >
-            </Button>
-            <Container>
-                        <div className="mt-5 pt-5">
-                            <input onBlur={handleEmail} className="w-100 py-3 rounded border-info" type="email" name="" placeholder="Email" />
-                            <br />
-                            <br />
-                            <input onBlur={handlePassword} className="w-100 py-3 rounded border-info" type="password" name="" placeholder="Password" />
-                            <br />
-                            <div className="row mb-3 text-danger">{error}</div>
-                            <br />
-                            <div className="text-center">
-                                <Button onClick={handleLogin} className="my-3">Log In</Button>
-                            </div>
-                        </div>
+        <div >
+            <Header />
+            <Container sx={{ mt: 5 }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Box className="form">
+                            <Typography variant="h3" sx={{ fontWeight: 600 }}>
+                                Please Sign in
+                            </Typography>
+                            
+                            <Container>
+                                <div className="mt-5 pt-5">
+                                    <input onBlur={handleEmail} className="form-input" type="email" name="" placeholder="Email" />
+                                    <br />
+                                    <br />
+                                    <input onBlur={handlePassword} className="form-input" type="password" name="" placeholder="Password" />
+                                    <br />
+                                    <div className="">{error}</div>
+                                    <br />
+                                    <div className="text-center">
+                                        <Button onClick={handleLogin} className="my-3">Sign In</Button>
+                                    </div>
+                                </div>
+                            </Container>
+                            <Typography variant="h6" sx={{ fontWeight: 600,}}>
+                                OR
+                            </Typography>
+                            <Typography variant="h5" sx={{ fontWeight: 600,}} >
+                                Sign in With Google
+                            </Typography>
+                            <Button onClick={googleLogin}>Login</Button>
+                            <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                                New Here?
+                            </Typography>
+                            <Button sx={{ fontWeight: 600, typography: 'h5' }}>
+                                <NavLink to="/signin" >Create an Account</NavLink >
+                            </Button>
+                       </Box>
+                    </Grid>
+                    </Grid>
+            
             </Container>
-            <Typography>
-                OR
-            </Typography>
-            <Typography>
-                sign in with google
-            </Typography>
-            <Button onClick={googleLogin}>Login</Button>
         </div>
     );
 };

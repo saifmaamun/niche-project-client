@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button'
-import { Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Shared/Header/Header';
 
 const Signin = () => {
-    const { auth,user, registerUser } = useAuth();
+    const { auth, user, registerUser } = useAuth();
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -36,7 +36,7 @@ const Signin = () => {
         else {
             registerUser(email, password, name);
         }
-        console.log(email, password, name,user);
+        console.log(email, password, name, user);
         navigate('/')
     }
 
@@ -45,42 +45,63 @@ const Signin = () => {
 
     return (
         <div>
-            <Header/>
-            <h1>login using google</h1>
-            <p>user is { user.name}</p>
+            <Header />
+
             <div>
-                <h1>signin</h1>
-                <form onSubmit={handleRegistration}>
-                    <div className="row mb-3">
-                        <label htmlFor="inputName" className="col-sm-2 col-form-label">Name</label>
-                        <div className="col-sm-10">
-                            <input type="text" onBlur={handleNameChange} className="form-control" id="inputName" placeholder="Your Name" />
-                        </div>
-                    </div>
-                    <div className="row mb-3">
-                        <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
-                        <div className="col-sm-10">
-                            <input onBlur={handleEmailChange} type="email" className="form-control" id="inputEmail3" required />
-                        </div>
-                    </div>
-                    <div className="row mb-3">
-                        <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
-                        <div className="col-sm-10">
-                            <input type="password" onBlur={handlePasswordChange} className="form-control" id="inputPassword3" required />
-                        </div>
-                    </div>
+                <Container sx={{ mt: 5 }}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} md={6}>
 
-                    <div className="row mb-3 text-danger">{error}</div>
-                    <button type="submit" className="btn btn-warning">
-                        Register
-                    </button>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <Box className="form">
+
+                                <Typography variant="h3" sx={{ fontWeight: 600 }}>
+                                    Create New Account
+                                </Typography>
+                                <form onSubmit={handleRegistration}>
+                                    <div className="">
+                                        <label htmlFor="inputName" className="col-form-label">
+                                            <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                                                Name
+                                            </Typography>
+                                        </label>
+                                        <div className="">
+                                            <input type="text" onBlur={handleNameChange} className="form-input form-control" id="inputName" placeholder="Your Name" />
+                                        </div>
+                                    </div>
+                                    <div >  
+                                        <label htmlFor="inputEmail3" className="ol-form-label"><Typography variant="body1" sx={{ fontWeight: 600 }}>
+                                            Email
+                                        </Typography></label>
+                                        <div className="">
+                                            <input onBlur={handleEmailChange} type="email" className="form-input form-control" id="inputEmail3" required />
+                                        </div>
+                                    </div>
+                                    <div className="">
+                                        <label htmlFor="inputPassword3" className="col-form-label"><Typography variant="body1" sx={{ fontWeight: 600 }}>
+                                            Password
+                                        </Typography></label>
+                                        <div className="">
+                                            <input type="password" onBlur={handlePasswordChange} className="form-input form-control" id="inputPassword3" required />
+                                        </div>
+                                    </div>
+
+                                    <div className="">{error}</div>
+                                    <Button type="submit" className="">
+                                        Register
+                                    </Button>
 
 
-                </form>
+                                </form>
+                                <Button>
+                                    <NavLink to="/login" className="">Already Have an Account</NavLink >
+                                </Button>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
             </div>
-            <Button>
-                <NavLink to="/login" className="style px-1 text-light fw-bold">Already Have an Account</NavLink >
-                </Button>
         </div>
     );
 };

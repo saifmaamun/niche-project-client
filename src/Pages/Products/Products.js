@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Product from '../Product/Product';
+import './Products.css';
 
 const Products = () => {
 
@@ -15,10 +16,10 @@ const Products = () => {
 console.log('products')
 
     return (
-        <Box sx={{ m: 8 }}>
-            <h1>Products</h1>
-            <Container>
-                <Grid container spacing={2}>
+        <Box className="bg-banner" >
+            <Container sx={{ py: "8rem" }}>
+                <Typography variant="h3" sx={{ textAlign: 'left', py: 5, ml: -4, textTransform: 'capitalize', fontWeight: "bold", color: 'black' }}> <u>Our Collections</u> </Typography>
+                <Grid container spacing={5}>
                     {
                         products.map(product =>
                             <Grid item xs={12} sm={6} md={4}>
@@ -37,5 +38,5 @@ console.log('products')
         </Box>
     );
 };
-
+// variant = "h1"
 export default Products;

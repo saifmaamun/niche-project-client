@@ -6,14 +6,14 @@ const ManageAllOrders = () => {
 
 
     useEffect(() => {
-        fetch('https://arcane-badlands-01231.herokuapp.com/purcheased')
+        fetch('https://frozen-meadow-47661.herokuapp.com/bought')
             .then(res => res.json())
             .then(data => setBoughtItems(data))
     }, [boughtItems]);
 
 
     const handleDelete = id => {
-        const url = `https://arcane-badlands-01231.herokuapp.com/purcheased/${id}`
+        const url = `https://frozen-meadow-47661.herokuapp.com/bought/${id}`
         fetch(url, {
             method: 'DELETE'
         })

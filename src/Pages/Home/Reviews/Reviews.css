@@ -1,0 +1,7 @@
+.review{
+    box-shadow: 1px 1px 5px 0 #002426;
+}
+.review:hover{
+    
+    box-shadow: 15px 15px 15px 0 #002426;
+}
