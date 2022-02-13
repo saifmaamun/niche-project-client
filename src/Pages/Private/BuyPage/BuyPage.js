@@ -28,9 +28,8 @@ const BuyPage = () => {
     }
 
 
-
     useEffect(() => {
-        fetch(`https://frozen-meadow-47661.herokuapp.com/${id}`)
+        fetch(`https://frozen-meadow-47661.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setPurchase(data))
     }, [])
