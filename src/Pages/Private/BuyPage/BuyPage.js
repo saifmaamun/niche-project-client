@@ -18,7 +18,7 @@ const BuyPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/bought', data)
+        axios.post('https://frozen-meadow-47661.herokuapp.com/bought', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added Successfully')
@@ -30,7 +30,7 @@ const BuyPage = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://frozen-meadow-47661.herokuapp.com//${id}`)
             .then(res => res.json())
             .then(data => setPurchase(data))
     }, [])

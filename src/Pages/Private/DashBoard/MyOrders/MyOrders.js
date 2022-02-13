@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [boughtItems, setBoughtItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/bought')
+        fetch('https://frozen-meadow-47661.herokuapp.com/bought')
             .then(res => res.json())
             .then(data => {
                 const addedItems = data.filter(items => items.email === user.email)
@@ -19,7 +19,7 @@ const MyOrders = () => {
 
     const handleDelete = id => {
         console.log(id)
-        const url = `http://localhost:5000/bought/${id}`
+        const url = `https://frozen-meadow-47661.herokuapp.com/${id}`
         fetch(url, {
             method: 'DELETE'
         })

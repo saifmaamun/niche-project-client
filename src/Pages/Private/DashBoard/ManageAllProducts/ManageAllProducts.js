@@ -5,14 +5,14 @@ const ManageAllProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://frozen-meadow-47661.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [products]);
 
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://frozen-meadow-47661.herokuapp.com/${id}`
         fetch(url, {
             method: 'DELETE'
         })

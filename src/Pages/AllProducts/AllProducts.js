@@ -11,7 +11,7 @@ import Header from '../Shared/Header/Header';
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://frozen-meadow-47661.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

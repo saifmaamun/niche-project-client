@@ -7,7 +7,7 @@ const Products = () => {
 
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://frozen-meadow-47661.herokuapp.com/products')
             .then(res => res.json())
         // .then(data=>console.log(data))
             .then(data => setProducts(data.slice(0, 6)))
