@@ -42,28 +42,39 @@ const BuyPage = () => {
             <Header />
             <Container sx={{ mx: 'auto', mt: 5, borderRadius: 10 }}>
                 <Box sx={{ flexGrow: 1, py: 3 }}>
-                    <Grid sx={{ alignItems: 'center' }} container spacing={2}>
-                        <Grid item xs={6} md={8}>
-                            <img style={{ width: '100%', borderRadius: 10 }} src={img} alt='car'></img>
-                            <Card >
-                                <CardActionArea>
-                                    <CardContent>
+                    <Grid sx={{ alignItems: 'center' }} container spacing={5}>
+                        <Grid item xs={12} md={7}>
+                            <Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <div>
+                                        <img style={{ width: '100%', borderRadius: 10 }} src={img} alt='car'></img>
+                                    </div>
+                                    <div>
                                         <Typography gutterBottom variant="h4" component="div">
                                             {name}
                                         </Typography>
-                                        <Typography variant="body1" color="text.secondary">
+                                        <Typography variant="body1" >
                                             {hints}
                                         </Typography>
-                                        <Typography variant="h6" component="div">
-                                            Price: Starts From ${price}
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
+                                    </div>
+                                </Box>
+                                <Box sx={{ my:3}}>
+
+                                    <Card>
+                                        <CardActionArea>
+                                            <CardContent>
+                                                <Typography variant="h6" component="div">
+                                                    Price:  ${price}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card>
+                                </Box>
+                            </Box>
                         </Grid>
-                        <Grid item xs={6} md={4}>
+                        <Grid item xs={12} md={5}>
                             <Box className="form">
-                                <h1>Please Fill in</h1>
+                                <h1>Please Fill The Form</h1>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <input className="form-input" value={displayName} {...register('userName', { required: true })} /> <br />
                                     <input className="form-input" value={email} {...register("email", { required: true })} /> <br />
@@ -74,7 +85,7 @@ const BuyPage = () => {
                                     <input className="form-input"  {...register("number", { required: true })} type='number' placeholder='Phone Number' /> <br />
                                     {errors.exampleRequired && <span>This field is required</span>} <br />
                                     <Button>
-                                        <input type="submit" /> 
+                                        <input type="submit" />
                                     </Button>
                                 </form>
                             </Box>

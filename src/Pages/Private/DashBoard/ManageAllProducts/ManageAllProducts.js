@@ -1,5 +1,6 @@
-import { Button, Container, Paper, Table, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Container, Paper, Table, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import './ManageAllProducts.css'
 
 const ManageAllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ const ManageAllProducts = () => {
 
 
     const handleDelete = id => {
-        const url = `https://frozen-meadow-47661.herokuapp.com/${id}`
+        const url = `https://frozen-meadow-47661.herokuapp.com/products/${id}`
         fetch(url, {
             method: 'DELETE'
         })
@@ -30,29 +31,31 @@ const ManageAllProducts = () => {
 
     return (
         <Container>
-            <h1>All Products</h1>
-            <TableContainer component={Paper}>
+            <Typography variant="h3" sx={{my:5, fontWeight: 600 }}>
+                All Products
+            </Typography>
+            <TableContainer className="all-products" component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="right">Model</TableCell>
-                            <TableCell align="right">Description</TableCell>
-                            <TableCell align="right">Price</TableCell>
-                            <TableCell align="right">Image</TableCell>
-                            <TableCell align="right">Remove</TableCell>
+                            <TableCell className="cell-style" align="right">Book Name</TableCell>
+                            <TableCell className="cell-style" align="right">Description</TableCell>
+                            <TableCell className="cell-style" align="right">Price</TableCell>
+                            <TableCell className="cell-style" align="right">Image</TableCell>
+                            <TableCell className="cell-style" align="right">Remove</TableCell>
                         </TableRow>
                         {products.map((product) => (
                             <TableRow
                                 key={product._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell align="right">{product.name}</TableCell>
-                                <TableCell align="right">{product.hints}</TableCell>
-                                <TableCell align="right">${product.price}</TableCell>
-                                <TableCell component="th" scope="row">
+                                <TableCell className="cell-style" align="right">{product.name}, written by { product?.writer}</TableCell>
+                                <TableCell className="cell-style" align="right">{product.hints}</TableCell>
+                                <TableCell className="cell-style" align="right">${product.price}</TableCell>
+                                <TableCell className="cell-style" component="th" scope="row">
                                     <img style={{ width: '100%' }} src={product.img} alt="" />
-                                </TableCell>
-                                <TableCell align="right"><Button className="btn btn-dark fw-bold" onClick={() => handleDelete(product._id)}>Remove</Button></TableCell>
+                                </TableCell >
+                                <TableCell className="cell-style" align="right"><Button className="btn btn-dark fw-bold" onClick={() => handleDelete(product._id)}>Remove</Button></TableCell>
                             </TableRow>
                         ))}
                     </TableHead>

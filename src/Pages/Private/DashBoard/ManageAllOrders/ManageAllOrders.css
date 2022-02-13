@@ -1,0 +1,10 @@
+.all-orders{
+    box-shadow:2px 2px 2px 2px #002426;
+    border-radius:10px;
+    background:#002426;
+    color:#fff;
+}
+.cell-style{
+    padding: 10px auto;
+    color:#fff;
+}

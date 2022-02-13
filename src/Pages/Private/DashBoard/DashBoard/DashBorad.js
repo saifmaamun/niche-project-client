@@ -19,6 +19,7 @@ import { MenuItem } from '@mui/material';
 import { NavLink, Outlet } from 'react-router-dom';
 import Header from '../../../Shared/Header/Header';
 import useAuth from '../../../../hooks/useAuth';
+import './DashBoard.css'
 
 const drawerWidth = 240;
 const DashBorad = (props) => {
@@ -31,7 +32,7 @@ const DashBorad = (props) => {
     };
     const drawer = (
         <div>
-            <Toolbar elevation='16' sx={{ bgcolor: 'error.main' }} >
+            <Toolbar elevation='16' className='dashboard-toolbar' >
                 Dashboard
             </Toolbar>
             <Divider />
@@ -120,13 +121,12 @@ const DashBorad = (props) => {
             <AppBar
                 position="fixed"
                 sx={{
-                    bgcolor: 'error.main',
                     color: 'black',
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                <Toolbar>
+                <Toolbar className="dashboard-toolbar">
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
