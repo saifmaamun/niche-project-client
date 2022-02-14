@@ -29,33 +29,90 @@ const ManageAllProducts = () => {
     }
 
 
+
+
+
+
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: 'white',
+        textDecoration: 'none',
+        color: '#002426',
+        padding: '8px 26px',
+        margin: '20px 0px',
+        borderRadius: '10px',
+        marginBottom: '10px'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+        color: 'white',
+        fontWeight: 'bold',
+        marginTop: '50px'
+    }
+    const navClose = {
+        textDecoration: 'none',
+        color: '#002426',
+    }
+    const btnPrimary = {
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = {
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const cellStyle = {
+        padding: '10px auto',
+        color: 'white'
+    }
+    const allProducts={
+        boxShadow: '2px 2px 2px 2px #002426',
+        borderRadius: '10px',
+        backgroundColor:'#002426',
+        color: '#fff'
+    }
+
+//
+    // style
+// 
+
+
+
+
+
     return (
         <Container>
             <Typography variant="h3" sx={{my:5, fontWeight: 600 }}>
                 All Products
             </Typography>
-            <TableContainer className="all-products" component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableContainer  component={Paper}>
+                <Table style={allProducts} sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell className="cell-style" align="right">Book Name</TableCell>
-                            <TableCell className="cell-style" align="right">Description</TableCell>
-                            <TableCell className="cell-style" align="right">Price</TableCell>
-                            <TableCell className="cell-style" align="right">Image</TableCell>
-                            <TableCell className="cell-style" align="right">Remove</TableCell>
+                            <TableCell style={cellStyle} align="right">Book Name</TableCell>
+                            <TableCell style={cellStyle} align="right">Description</TableCell>
+                            <TableCell style={cellStyle} align="right">Price</TableCell>
+                            <TableCell style={cellStyle} align="right">Image</TableCell>
+                            <TableCell style={cellStyle} align="right">Remove</TableCell>
                         </TableRow>
                         {products.map((product) => (
                             <TableRow
                                 key={product._id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell className="cell-style" align="right">{product.name}, written by { product?.writer}</TableCell>
-                                <TableCell className="cell-style" align="right">{product.hints}</TableCell>
-                                <TableCell className="cell-style" align="right">${product.price}</TableCell>
-                                <TableCell className="cell-style" component="th" scope="row">
+                                <TableCell style={cellStyle} align="right">{product.name}, written by { product?.writer}</TableCell>
+                                <TableCell style={cellStyle} align="right">{product.hints}</TableCell>
+                                <TableCell style={cellStyle} align="right">${product.price}</TableCell>
+                                <TableCell style={cellStyle} component="th" scope="row">
                                     <img style={{ width: '100%' }} src={product.img} alt="" />
                                 </TableCell >
-                                <TableCell className="cell-style" align="right"><Button className="btn btn-dark fw-bold" onClick={() => handleDelete(product._id)}>Remove</Button></TableCell>
+                                <TableCell style={cellStyle} align="right"><Button style={buttonStyle} onClick={() => handleDelete(product._id)}>Remove</Button></TableCell>
                             </TableRow>
                         ))}
                     </TableHead>

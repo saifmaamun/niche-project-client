@@ -43,6 +43,49 @@ const Signin = () => {
 
 
 
+
+
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: 'white',
+        textDecoration: 'none',
+        color: '#002426',
+        padding: '8px 26px',
+        margin:'20px 0px',
+        borderRadius: '5px',
+        marginBottom: '10px'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+        color: 'white',
+        fontWeight: 'bold',
+        marginTop: '50px'
+    }
+    const navClose = {
+        textDecoration: 'none',
+        color: '#002426',
+    }
+    const btnPrimary = {
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = {
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+
+//
+    // style
+// 
+
+
+
     return (
         <div>
             <Header />
@@ -88,14 +131,14 @@ const Signin = () => {
                                     </div>
 
                                     <div className="">{error}</div>
-                                    <Button type="submit" className="">
+                                    <Button style={buttonStyle} type="submit" className="">
                                         Register
                                     </Button>
 
 
                                 </form>
                                 <Button>
-                                    <NavLink to="/login" className="">Already Have an Account</NavLink >
+                                    <NavLink style={navOpen}to="/login" className="">Already Have an Account</NavLink >
                                 </Button>
                             </Box>
                         </Grid>

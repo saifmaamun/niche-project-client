@@ -7,20 +7,44 @@ import  './Banner.css'
 const Banner = () => {
 
 
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: 'white',
+        textDecoration: 'none',
+        color: '#002426',
+        padding: '7px 12px'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+    }
+
+//
+    // style
+// 
+
+
 
     return (
         <Box sx={{ py:3 }} className="gradient">
             <Container >
                 <Grid container spacing={2} sx={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Grid xs={12} md={6}>
-                        <Box sx={{ typography: 'h4', textAlign: 'left', textTransform: 'capitalize', fontWeight: 500, color:'white' }}>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro reprehenderit consequuntur facere eaque placeat quo, delectus est totam fuga iste.
+                    <Grid xs={12} md={6}>
+                        <Box sx={{ typography: 'caption', textAlign: 'left',my:4, textTransform: 'capitalize', fontWeight: 500, color: 'white' }}>
+                            in search of treasures
+                        </Box>
+
+                        <Box sx={{ typography: 'h3', textAlign: 'left', mr: 5,my:4, textTransform: 'capitalize', fontWeight: 500, color: 'white' }}>
+                            There is more treasure in books than in all the pirate’s loot on Treasure Island.
+                            
                         </Box>
                         <Box>
-                            <NavLink to="/products">
-                                <Button
-                                    sx={{ typography: 'h6',my: 2, color: 'white', display: 'block' }}
-                                > Products </Button>
+                            <NavLink style={navOpen} to="/products">
+                                <Button 
+                                    style={buttonStyle} 
+                                    sx={{ typography: 'h6',my: 5,  display: 'block' }}
+                                > See All Books </Button>
                             </NavLink>
                         </Box>
                 </Grid>

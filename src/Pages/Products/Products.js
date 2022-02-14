@@ -13,12 +13,15 @@ const Products = () => {
         // .then(data=>console.log(data))
             .then(data => setProducts(data.slice(0, 6)))
     }, [])
-console.log('products')
+
+
+
+
 
     return (
         <Box className="bg-banner" >
             <Container sx={{ py: "8rem" }}>
-                <Typography variant="h3" sx={{ textAlign: 'left', py: 5, ml: -4, textTransform: 'capitalize', fontWeight: "bold", color: 'black' }}> <u>Our Collections</u> </Typography>
+                <Typography variant="h3" sx={{ textAlign: 'left', py: 5, ml: -4, textTransform: 'capitalize', fontWeight: "bold", color: '#002426' }}> <u>Our Collections</u> </Typography>
                 <Grid container spacing={5}>
                     {
                         products.map(product =>

@@ -9,7 +9,7 @@ import './BuyPage.css'
 
 const BuyPage = () => {
     const [purchase, setPurchase] = useState({})
-    const { name, hints, img, price } = purchase;
+    const { name,writer, hints, img, price } = purchase;
     const { id } = useParams();
     console.log(purchase)
     const { user } = useAuth();
@@ -37,6 +37,51 @@ const BuyPage = () => {
     }, [])
 
 
+
+
+
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: 'white',
+        textDecoration: 'none',
+        color: '#002426',
+        padding: '10px 30px',
+        borderRadius: '5px',
+        border: 'none',
+        fontWeight:'bold'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+        color: 'white'
+    }
+    const navClose = {
+        textDecoration: 'none',
+        color: '#002426'
+    }
+    const btnPrimary = {
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = {
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+
+//
+    // style
+// 
+
+
+
+
+    
+
     return (
         <Box>
             <Header />
@@ -45,19 +90,21 @@ const BuyPage = () => {
                     <Grid sx={{ alignItems: 'center' }} container spacing={5}>
                         <Grid item xs={12} md={7}>
                             <Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Box sx={{ display: 'flex', my: 3, justifyContent: 'space-evenly', alignItems: 'center' }}>
                                     <div>
                                         <img style={{ width: '100%', borderRadius: 10 }} src={img} alt='car'></img>
                                     </div>
                                     <div>
                                         <Typography gutterBottom variant="h4" component="div">
-                                            {name}
-                                        </Typography>
-                                        <Typography variant="body1" >
-                                            {hints}
+                                            {name} <Typography gutterBottom variant="h6" component="div">
+                                                by {writer}
+                                            </Typography>
                                         </Typography>
                                     </div>
                                 </Box>
+                                        <Typography textAlign="left" variant="body1" >
+                                            {hints}
+                                        </Typography>
                                 <Box sx={{ my:3}}>
 
                                     <Card>
@@ -85,7 +132,8 @@ const BuyPage = () => {
                                     <input className="form-input"  {...register("number", { required: true })} type='number' placeholder='Phone Number' /> <br />
                                     {errors.exampleRequired && <span>This field is required</span>} <br />
                                     <Button>
-                                        <input type="submit" />
+                                        <input style={buttonStyle} type="submit" >
+                                        </input>
                                     </Button>
                                 </form>
                             </Box>

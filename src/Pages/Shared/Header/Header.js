@@ -37,18 +37,54 @@ const Header = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+
+//
+    // style
+//
+    const buttonStyle = { 
+        backgroundColor: 'white',
+        textDecoration: 'none',
+        color: '#002426',
+        padding:'7px 12px'
+    }
+    const navOpen = { 
+        textDecoration: 'none',
+        color: 'white'
+    }
+    const navClose = { 
+        textDecoration: 'none',
+        color: '#002426'
+    }
+    const btnPrimary = { 
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = { 
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    
+// 
+    // style
+// 
+
+
     return (
         <AppBar style={{ backgroundColor:'#002426'}} position="static" sx={{  color: 'white'}}>
             <Container maxWidth="xl" sx={{ my: 2, flexDirection: 'row', alignItems: 'center' }}>
                 <Toolbar disableGutters>
-                    <Typography
+                    {/* <Typography
                         variant="h6"
                         noWrap
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-                        LOGO
-                    </Typography>
+                    </Typography> */}
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -80,35 +116,48 @@ const Header = () => {
                             }}
                         >
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center"><NavLink to="/home">Home</NavLink></Typography>
+                                <Typography textAlign="center"><NavLink style={navClose} to="/home">Treasure</NavLink></Typography>
                             </MenuItem>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center"><NavLink to="/login">Login</NavLink></Typography>
+                                <Typography textAlign="center"><NavLink style={navClose} to="/home">Home</NavLink></Typography>
+                            </MenuItem>
+                            
+                               {!user?.email && <Box><MenuItem onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center"><NavLink style={navClose} to="/login">Login</NavLink></Typography>
+                                </MenuItem>
+                                    <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center"><NavLink style={navClose} to="/signin">Register</NavLink></Typography>
+                                    </MenuItem></Box>}
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center"><NavLink style={navClose} to="/products">Products</NavLink></Typography>
                             </MenuItem>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center"><NavLink to="/signin">Signin</NavLink></Typography>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center"><NavLink to="/products">Products</NavLink></Typography>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center"><NavLink to="/dashboard">Dashboard</NavLink></Typography>
+                                <Typography textAlign="center"><NavLink style={navClose} to="/dashboard">Dashboard</NavLink></Typography>
                             </MenuItem>
                         </Menu>
                     </Box>
                     
-                    <Typography
+                    {/* <Typography
                         variant="h6"
                         noWrap
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
                         LOGO
-                    </Typography>
+                    </Typography> */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
-                        <NavLink to="/home">
+                        <NavLink style={navOpen}  to="/home">
                             <Button
+                                variant="h2"
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, display: 'block' }}
+                            >Treasure
+                            </Button>
+                        </NavLink>
+                        <NavLink style={navOpen}  to="/home">
+                            <Button
+                                className="button-style"
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -116,31 +165,33 @@ const Header = () => {
                             </Button>
                         </NavLink>
 
-                        <NavLink to="/login">
+                        {!user?.email &&
+                            <NavLink style={navOpen} to="/login">
+                                <Button
+                                    variant="h2"
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, display: 'block' }}
+                                >Login</Button>
+                            </NavLink>}
+
+                            {!user?.email && <NavLink style={navOpen}  to="/signin">
+                                <Button
+                                    variant="h2"
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2,  display: 'block' }}
+                                >Register</Button>
+                            </NavLink>
+                       }
+
+                        <NavLink style={navOpen}  to="/products">
                             <Button
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >Login</Button>
+                                sx={{ my: 2,  display: 'block' }}
+                            > Books </Button>
                         </NavLink>
 
-                        <NavLink to="/signin">
-                            <Button
-                                variant="h2"
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >Signin</Button>
-                        </NavLink>
-
-                        <NavLink to="/products">
-                            <Button
-                                variant="h2"
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            > Products </Button>
-                        </NavLink>
-
-                        <NavLink to="/dashboard">
+                        <NavLink style={navOpen}  to="/dashboard">
                             <Button
                                 variant="h2"
                                 onClick={handleCloseNavMenu}
@@ -150,7 +201,7 @@ const Header = () => {
 
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    {/* <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -178,9 +229,9 @@ const Header = () => {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>
-                    {user?.email && <Button onClick={logOut} style={{ color: "white" }}>Logout</Button>}
-                    {user?.email && <Typography sx={{ color: 'black', bgcolor: 'white', px: 3, py: 1, borderRadius: 16 }} variant="subtitle2" component="div">
+                    </Box> */}
+                    {user?.email && <Button sx={{mr:3}}onClick={logOut} style={buttonStyle}>Logout</Button>}
+                    {user?.email && <Typography sx={{ color: 'black', bgcolor: 'white', px: 3, py: 1, borderRadius:1 }} variant="subtitle2" component="div">
                         {user.displayName}
                     </Typography>}
                 </Toolbar>

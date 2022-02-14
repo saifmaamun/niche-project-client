@@ -33,6 +33,47 @@ const Login = () => {
     }
     
 
+
+
+
+
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: 'white',
+        textDecoration: 'none',
+        color: '#002426',
+        padding: '8px 26px',
+        borderRadius: '5px',
+        marginBottom:'10px'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+        color: 'white', 
+        fontWeight:'bold'
+    }
+    const navClose = {
+        textDecoration: 'none',
+        color: '#002426',
+    }
+    const btnPrimary = {
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = {
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+
+//
+    // style
+// 
+
     
 
     
@@ -46,7 +87,7 @@ const Login = () => {
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Box className="form">
-                            <Typography variant="h3" sx={{ fontWeight: 600 }}>
+                            <Typography variant="h3" sx={{my:4, fontWeight: 600 }}>
                                 Please Sign in
                             </Typography>
                             
@@ -60,22 +101,22 @@ const Login = () => {
                                     <div className="">{error}</div>
                                     <br />
                                     <div className="text-center">
-                                        <Button onClick={handleLogin} className="my-3">Sign In</Button>
+                                        <Button style={buttonStyle} onClick={handleLogin} >Sign In</Button>
                                     </div>
                                 </div>
                             </Container>
-                            <Typography variant="h6" sx={{ fontWeight: 600,}}>
+                            <Typography variant="h6" sx={{my:3, fontWeight: 600,}}>
                                 OR
                             </Typography>
-                            <Typography variant="h5" sx={{ fontWeight: 600,}} >
+                            <Typography variant="h5" sx={{ my: 2, fontWeight: 600,}} >
                                 Sign in With Google
                             </Typography>
-                            <Button onClick={googleLogin}>Login</Button>
-                            <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                            <Button style={buttonStyle} onClick={googleLogin}>Google Signin</Button>
+                            <Typography variant="h5" sx={{ mt: 3,  fontWeight: 600 }}>
                                 New Here?
                             </Typography>
-                            <Button sx={{ fontWeight: 600, typography: 'h5' }}>
-                                <NavLink to="/signin" >Create an Account</NavLink >
+                            <Button sx={{fontWeight: 600, typography: 'h4' }}>
+                                <NavLink style={navOpen} to="/signin" >Create an Account</NavLink >
                             </Button>
                        </Box>
                     </Grid>

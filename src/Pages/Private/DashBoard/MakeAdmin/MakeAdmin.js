@@ -28,6 +28,47 @@ const MakeAdmin = () => {
 
 
 
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: '#002426',
+        textDecoration: 'none',
+        color: 'white',
+        padding: '8px 26px',
+        margin: '20px 10px',
+        borderRadius: '10px',
+        marginBottom: '10px'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+        color: 'white',
+        fontWeight: 'bold',
+        marginTop: '50px'
+    }
+    const navClose = {
+        textDecoration: 'none',
+        color: '#002426',
+    }
+    const btnPrimary = {
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = {
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+
+//
+    // style
+// 
+
+
+
     return (
         <div>
             <Typography variant="h3" sx={{my:5, fontWeight: 600 }}>
@@ -40,7 +81,7 @@ const MakeAdmin = () => {
                     type="email"
                     onBlur={handleOnBlur}
                     variant="standard" />
-                <Button type="submit" variant="contained">Make Admin</Button>
+                <Button style={buttonStyle} type="submit" >Make Admin</Button>
             </form>
             {success && <Alert severity="success">Made Admin successfully!</Alert>}
         </div>

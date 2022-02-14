@@ -6,6 +6,53 @@ import './Product.css';
 const Product = ({ product }) => {
     console.log(product)
     const { name, hints, img, price, _id } = product;
+
+
+
+
+
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: 'white',
+        textDecoration: 'none',
+        color: '#002426',
+        padding: '10px 16px',
+        borderRadius:'5px'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+        color: 'white'
+    }
+    const navClose = {
+        textDecoration: 'none',
+        color: '#002426'
+    }
+    const btnPrimary = {
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = {
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+
+//
+    // style
+// 
+
+
+
+
+
+
+
+
     return (
         <Card className="card-hover" sx={{ maxWidth: 345 }}>
             <CardActionArea>
@@ -26,7 +73,7 @@ const Product = ({ product }) => {
                         variant="h2"
                         sx={{ my: 2,  display: 'block' }}
                     >
-                        <NavLink to={`/products/${_id}`}>Purchase</NavLink>
+                        <NavLink style={buttonStyle} to={`/products/${_id}`}>Purchase</NavLink>
 
                     </Button>
                 </CardContent>

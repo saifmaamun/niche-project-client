@@ -73,7 +73,12 @@ const DashBorad = (props) => {
                 <MenuItem >
                     <Typography textAlign="center">Add Product</Typography>
                     </MenuItem>
-                </NavLink>
+                    </NavLink>
+                    <NavLink to="/dashboard/myorders">
+                        <MenuItem >
+                            <Typography textAlign="center">My Orders</Typography>
+                        </MenuItem>
+                    </NavLink>
             
                 
                 <NavLink to="/dashboard/makeadmin">
