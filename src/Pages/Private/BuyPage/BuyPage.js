@@ -91,9 +91,9 @@ const BuyPage = () => {
                     <Grid sx={{ alignItems: 'center' }} container spacing={5}>
                         <Grid item xs={12} md={7}>
                             <Box>
-                                <Box sx={{ display: 'flex', my: 3, justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                <Box sx={{ my: 3, justifyContent: 'space-evenly', alignItems: 'center' }}>
                                     <div>
-                                        <img style={{ width: '100%', borderRadius: 10 }} src={img} alt='car'></img>
+                                        <img style={{ width: '50%', borderRadius: 10 }} src={img} alt='car'></img>
                                     </div>
                                     <div>
                                         <Typography gutterBottom variant="h4" component="div">
