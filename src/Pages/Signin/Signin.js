@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 const Signin = () => {
     const { auth, user, registerUser } = useAuth();
@@ -145,6 +146,7 @@ const Signin = () => {
                     </Grid>
                 </Container>
             </div>
+            <Footer/>
         </div>
     );
 };

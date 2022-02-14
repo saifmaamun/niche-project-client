@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 import './BuyPage.css'
+import Footer from '../../Shared/Footer/Footer';
 
 const BuyPage = () => {
     const [purchase, setPurchase] = useState({})
@@ -141,7 +142,7 @@ const BuyPage = () => {
                     </Grid>
                 </Box>
             </Container>
-
+<Footer/>
         </Box>
     );
 };

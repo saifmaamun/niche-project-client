@@ -15,52 +15,98 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { MenuItem } from '@mui/material';
+import { Button, MenuItem } from '@mui/material';
 import { NavLink, Outlet } from 'react-router-dom';
 import Header from '../../../Shared/Header/Header';
 import useAuth from '../../../../hooks/useAuth';
 import './DashBoard.css'
+import Footer from '../../../Shared/Footer/Footer';
 
 const drawerWidth = 240;
 const DashBorad = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { admin } = useAuth();
+    const { user, logOut, admin } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+
+    //
+    // style
+    //
+    const buttonStyle = {
+        backgroundColor: '#002426',
+        textDecoration: 'none',
+        color: 'white',
+        padding: '10px 26px',
+        borderRadius: '5px'
+    }
+    const navOpen = {
+        textDecoration: 'none',
+        color: '#002426'
+    }
+    const navClose = {
+        textDecoration: 'none',
+        color: 'white'
+    }
+    const btnPrimary = {
+        backGroundColor: 'white',
+        color: '#002426',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+    const btnSecondary = {
+        backGroundColor: '#002426',
+        color: 'white',
+        textDecoration: 'none',
+        padding: '7px 12px'
+    }
+
+//
+    // style
+// 
+
+
+
+
+
+
+
     const drawer = (
         <div>
             <Toolbar elevation='16' className='dashboard-toolbar' >
                 Dashboard
             </Toolbar>
             <Divider />
-            <NavLink to="/home">
+            <NavLink style={navOpen}to="/home">
             <MenuItem >
                 <Typography textAlign="center">Home</Typography>
             </MenuItem>
             </NavLink>
 
-<NavLink to="/login">
-            <MenuItem >
-                <Typography textAlign="center">Login</Typography>
-            </MenuItem>
-</NavLink >
+            {!user?.email && 
+                <NavLink style={navOpen} to="/login">
+                    <MenuItem >
+                        <Typography textAlign="center">Login</Typography>
+                    </MenuItem>
+                </NavLink >}
             
-    <NavLink to="/signin">
-            <MenuItem >
-                <Typography textAlign="center">Signin</Typography>
-            </MenuItem>
-</NavLink >
+            {!user?.email && 
+                <NavLink style={navOpen} to="/signin">
+                    <MenuItem >
+                        <Typography textAlign="center">Signin</Typography>
+                    </MenuItem>
+                </NavLink >}
 
-    <NavLink to="/products">
+            <NavLink style={navOpen} to="/products">
             <MenuItem >
                 <Typography textAlign="center">Products</Typography>
             </MenuItem>
 </NavLink >
 
-    <NavLink to="/dashboard">
+            <NavLink style={navOpen} to="/dashboard">
             <MenuItem >
                 <Typography textAlign="center">Dashboard</Typography>
             </MenuItem>
@@ -69,31 +115,31 @@ const DashBorad = (props) => {
             <div>
                 {admin && <Box>
                     
-                <NavLink to="/dashboard/addproducts">
+                    <NavLink style={navOpen} to="/dashboard/addproducts">
                 <MenuItem >
                     <Typography textAlign="center">Add Product</Typography>
                     </MenuItem>
                     </NavLink>
-                    <NavLink to="/dashboard/myorders">
+                    <NavLink style={navOpen} to="/dashboard/myorders">
                         <MenuItem >
                             <Typography textAlign="center">My Orders</Typography>
                         </MenuItem>
                     </NavLink>
             
                 
-                <NavLink to="/dashboard/makeadmin">
+                    <NavLink style={navOpen} to="/dashboard/makeadmin">
                 <MenuItem >
                     <Typography textAlign="center">Make Admin</Typography>
                         </MenuItem>
                     </NavLink>
 
-                <NavLink to="/dashboard/manageallorders">
+                    <NavLink style={navOpen} to="/dashboard/manageallorders">
                 <MenuItem >
                     <Typography textAlign="center">Manage Orders</Typography>
                 </MenuItem>
             </NavLink>
 
-                <NavLink to="/dashboard/manageallproducts">
+                    <NavLink style={navOpen} to="/dashboard/manageallproducts">
                 <MenuItem >
                     <Typography textAlign="center">Manage Products</Typography>
                     </MenuItem>
@@ -101,18 +147,22 @@ const DashBorad = (props) => {
                 </Box>}
 
                 {!admin &&<Box>
-                    <NavLink to="/dashboard/myorders">
+                    <NavLink style={navOpen} to="/dashboard/myorders">
                         <MenuItem >
                             <Typography textAlign="center">My Orders</Typography>
                         </MenuItem>
                     </NavLink>
 
-                    <NavLink to="/dashboard/review">
+                    <NavLink style={navOpen} to="/dashboard/review">
                         <MenuItem >
                             <Typography textAlign="center">Review</Typography>
                         </MenuItem>
                     </NavLink>
                 </Box>}
+                {user?.email && <Typography sx={{ color: '#002426', textAlign:'left', bgcolor: 'white', px: 3, py: 3, borderRadius: 1 }} variant="h6" component="div">
+                   User Name: {user.displayName}
+                </Typography>}
+                {user?.email && <Button sx={{ mr: 3 }} onClick={logOut} style={buttonStyle}>Logout</Button>}
 
             </div>
             

@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import Header from '../Shared/Header/Header';
 import { Box } from '@mui/system';
 import './Login.css'
+import Footer from '../Shared/Footer/Footer';
 
 const Login = () => {
     const { auth, googleLogin, user, userLogin, error } = useAuth();
@@ -123,6 +124,7 @@ const Login = () => {
                     </Grid>
             
             </Container>
+            <Footer/>
         </div>
     );
 };
