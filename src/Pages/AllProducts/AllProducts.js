@@ -30,7 +30,7 @@ const AllProducts = () => {
                         <Grid container spacing={2}>
                             {
                                 products.map(product =>
-                                    <Grid item xs={12} sm={6} md={4}>
+                                    <Grid item xs={12} md={12} sm={6} md={4}>
                                         <Product
                                             key={product._id}
                                             product={product}

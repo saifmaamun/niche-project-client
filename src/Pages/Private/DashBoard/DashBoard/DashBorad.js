@@ -143,7 +143,13 @@ const DashBorad = (props) => {
                 <MenuItem >
                     <Typography textAlign="center">Manage Products</Typography>
                     </MenuItem>
-                </NavLink>
+                    </NavLink>
+                    <NavLink style={navOpen} to="/dashboard/review">
+                        <MenuItem >
+                            <Typography textAlign="center">Review</Typography>
+                        </MenuItem>
+                    </NavLink>
+                    
                 </Box>}
 
                 {!admin &&<Box>
@@ -153,6 +159,11 @@ const DashBorad = (props) => {
                         </MenuItem>
                     </NavLink>
 
+                    <NavLink style={navOpen} to="/dashboard/addreview">
+                        <MenuItem >
+                            <Typography textAlign="center">Add Review</Typography>
+                        </MenuItem>
+                    </NavLink>
                     <NavLink style={navOpen} to="/dashboard/review">
                         <MenuItem >
                             <Typography textAlign="center">Review</Typography>

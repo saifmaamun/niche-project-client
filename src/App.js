@@ -14,6 +14,7 @@ import ManageAllProducts from './Pages/Private/DashBoard/ManageAllProducts/Manag
 import MyOrders from './Pages/Private/DashBoard/MyOrders/MyOrders';
 import Review from './Pages/Private/DashBoard/Review/Review';
 import AddProduct from './Pages/Private/DashBoard/AddProduct/AddProduct';
+import AddReviews from './Pages/Private/DashBoard/AddReviews/AddReviews';
 import PrivateOutlet from './PrivateOutlet/PrivateOutlet';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                 <Route path="manageallproducts" element={<ManageAllProducts />} />
                 <Route path="myorders" element={<MyOrders />} />
                 <Route path="review" element={<Review />} />
+                <Route path="addreview" element={<AddReviews />} />
               </Route>
             </Route>
           </Routes>

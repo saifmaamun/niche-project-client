@@ -83,10 +83,10 @@ const Login = () => {
             <Header />
             <Container sx={{ mt: 5 }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={12} md={6}>
                         
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={12} md={6}>
                         <Box className="form">
                             <Typography variant="h3" sx={{my:4, fontWeight: 600 }}>
                                 Please Sign in

@@ -21,7 +21,7 @@ const Reviews = () => {
             <Grid container spacing={2}>
                     
             {reviews.map((review) => (
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                 <div
                 key={review._id}
                 >

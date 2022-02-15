@@ -89,7 +89,7 @@ const BuyPage = () => {
             <Container sx={{ mx: 'auto', mt: 5, borderRadius: 10 }}>
                 <Box sx={{ flexGrow: 1, py: 3 }}>
                     <Grid sx={{ alignItems: 'center' }} container spacing={5}>
-                        <Grid item xs={12} md={7}>
+                        <Grid item xs={12} md={12} md={7}>
                             <Box>
                                 <Box sx={{ my: 3, justifyContent: 'space-evenly', alignItems: 'center' }}>
                                     <div>
@@ -120,7 +120,7 @@ const BuyPage = () => {
                                 </Box>
                             </Box>
                         </Grid>
-                        <Grid item xs={12} md={5}>
+                        <Grid item xs={12} md={12} md={5}>
                             <Box className="form">
                                 <h1>Please Fill The Form</h1>
                                 <form onSubmit={handleSubmit(onSubmit)}>

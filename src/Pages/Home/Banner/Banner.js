@@ -30,7 +30,7 @@ const Banner = () => {
         <Box sx={{ py:3 }} className="gradient">
             <Container >
                 <Grid container spacing={2} sx={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Grid xs={12} md={6}>
+                    <Grid xs={12} md={12} md={6}>
                         <Box sx={{ typography: 'caption', textAlign: 'left',my:4, textTransform: 'capitalize', fontWeight: 500, color: 'white' }}>
                             in search of treasures
                         </Box>
@@ -48,7 +48,7 @@ const Banner = () => {
                             </NavLink>
                         </Box>
                 </Grid>
-                    <Grid xs={0} md={6}>
+                    <Grid xs={12} md={0} md={6}>
 
                         <Box className="">
                             <img className="image-shape" sx={{ width: 'auto%' }} src={bannerImg} alt="" srcset="" />
