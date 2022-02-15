@@ -120,7 +120,7 @@ const MyOrders = () => {
                                 <TableCell style={cellStyle} align="right">{boughtItem.address}</TableCell>
                                 <TableCell style={cellStyle} align="right">{boughtItem.number}</TableCell>
                                 <TableCell style={cellStyle} align="right">{boughtItem.price}</TableCell>
-                                <TableCell style={cellStyle} align="right"><Button className="btn btn-dark fw-bold" onClick={() => handleDelete(boughtItem._id)}>Remove</Button></TableCell>
+                                <TableCell align="right"><Button style={buttonStyle} onClick={() => handleDelete(boughtItem._id)}>Remove</Button></TableCell>
                             </TableRow>
                         ))}
                     </TableHead>

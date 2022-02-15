@@ -29,7 +29,7 @@ const Login = () => {
     const handleLogin = () => {
         userLogin(email, password);
         console.log(from);
-        navigate(from, {replace: true});
+        navigate('/');
         
     }
     
